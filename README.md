@@ -1,4 +1,4 @@
-# johnylabs — SARAH-ANN Core
+# johnylabs — sarah-ann
 **Self-Aligning Response Architecture for Humanity — Adaptive Neural Network**  
 Est. 2018 — Modular AI framework for ethical, local, human-aligned LLM systems.
 
