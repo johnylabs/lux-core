@@ -1,60 +1,74 @@
-# johnylabs — sarah-ann
-**Self-Aligning Response Architecture for Humanity — Adaptive Neural Network**  
-Est. 2018 — Modular AI framework for ethical, local, human-aligned LLM systems.
+# lux-core
+
+Local AI control layer for my home lab.
+
+`lux-core` defines how my **personal AI system** behaves across:
+
+- The **LLM engine** on the RTX 3090 (`home-llm-gateway-3090`)
+- My SOC / cloud / networking labs
+- My language and quant tools
+
+It is the **policy + orchestration layer**, not the model weights.
+
+> Previously: SARAH-ANN Core.  
+> Now renamed and aligned with my on-prem server identity.
 
 ---
 
-## Recent Updates
-- **2025-08-09** — Updated roadmap, added GPU config templates
-- **2025-07-20** — Linked integration notes for KoboldCPP and LM Studio
-- **2025-07-05** — Reviewed and updated SPIL-1.0 license terms
+## 🔎 Purpose
+
+- Run powerful models **locally** with strict control.
+- Define **what the AI is allowed to do** and **how it talks**.
+- Standardize how apps in my lab call the LLM gateway:
+  - SOC runbook assistant
+  - Spanish tutor
+  - Market deviation tools
+  - Future apps
+
+Lux does not care which exact model is loaded; it cares about:
+
+- Policies
+- Tools
+- Workflows
 
 ---
 
-## About the Project
-SARAH-ANN Core is a **personal-use AI framework** designed for:
-- Human-aligned AI interface design
-- Modular integration with open-source LLMs
-- Ethical and transparent deployment
-- Decentralized, local-first autonomy
+## 🧱 Repository Structure
 
----
-
-## Repo Contents
-- `architecture/` — Modular code layout *(planned)*
-- `interface/` — Frontend components
-- `deployment/` — Local setup guides
-- `templates/` — JSON and prompt scaffolds
-
-> 🔐 **Note:** This repo contains only public components. Extensions beyond this scope are private.
-
----
-
-## Guiding Principles
-1. Consent-first AI interaction
-2. Local processing > cloud dependency
-3. No data monetization
-4. No integration with surveillance models
-5. Designed for personal freedom, not control
-
----
-
-## License
-**SARAH-ANN Personal Intelligence License (SPIL-1.0)**  
-Strictly non-commercial and anti-surveillance.  
-Full terms in [LICENSE.md](LICENSE.txt).
-
----
-
-## Roadmap (2025–2026)
-- Add example architecture diagrams
-- Publish default prompt strategy
-- Dockerized deployment for localhost use
-- GPU config templates (RTX 3090, etc.)
-- Integration with KoboldCPP, LM Studio
-
----
-
-## Related Projects
-- [Home SOC Lab — Wazuh / Proxmox](https://github.com/johnylabs/home-soc-lab-splunk-wazuh)
-- [LLM Research](https://github.com/johnylabs/llm-research)
+```text
+lux-core/
+├── README.md
+├── policies/
+│   ├── alignment-policy.md         # what the AI is and is NOT for
+│   ├── privacy-policy.md           # data handling, logging, retention
+│   ├── safety-policy.md            # refusal rules, harmful content, boundaries
+│   └── autonomy-policy.md          # what it can trigger or change in the lab
+├── prompts/
+│   ├── system-prompts.md           # core system prompts (general / dev / soc / spanish)
+│   ├── style-guidelines.md         # tone, format, how responses should look
+│   └── tool-directives.md          # how the model should request tools (search, RAG, etc.)
+├── tools/
+│   ├── tool-catalog.md             # list of tools lux is allowed to call
+│   ├── tool-profiles/
+│   │   ├── web-search.md
+│   │   ├── rag-docs.md
+│   │   ├── soc-lab-tools.md
+│   │   └── quant-tools.md
+│   └── access-rules.md             # which app can use which tools
+├── flows/
+│   ├── overview.md                 # how requests flow through lux → gateway → tools
+│   ├── soc-runbook-flow.md         # ai-soc-runbook-qa interaction pattern
+│   ├── spanish-tutor-flow.md       # es-ai-immersion-lab interaction pattern
+│   ├── market-deviation-flow.md    # market deviation assistant pattern
+│   └── generic-chat-flow.md        # default “personal assistant” chat pipeline
+├── gateway-integration/
+│   ├── models-policy.md            # which models are allowed (sizes, families, licenses)
+│   ├── home-llm-gateway-3090.md    # how lux talks to the gateway API
+│   └── rate-limits.md              # per-app and per-user limits
+├── logs-spec/
+│   ├── logging-policy.md           # what can be logged, what must NOT be logged
+│   ├── redaction-rules.md          # how to scrub sensitive data before storage
+│   └── review-process.md           # how I review logs for tuning without leaking data
+└── roadmap/
+    ├── 2025-roadmap.md             # concrete features and milestones
+    └── ideas.md                    # future experiments / stretch goals
